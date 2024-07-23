@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+NL:wght@100..400&family=Playwrite+NO:wght@100..400&family=Playwrite+PL:wght@100..400&display=swap');
+
+.gender{
+    margin: 1.3rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+
+ 
+}
+
+.label span{
+    font-size: 1.2rem;
+}
+.check{
+    background: none;
+    padding-left: .2rem;
+    border-radius: .5rem ;
+}

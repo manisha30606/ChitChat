@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+NL:wght@100..400&family=Playwrite+NO:wght@100..400&family=Playwrite+PL:wght@100..400&display=swap');
+
+.message-box {
+    padding: .5rem;
+   
+    width: 100%;
+}
+
+.header {
+    padding: 1rem .5rem;
+    border-bottom: 1px solid #b5e7d9;
+}
+
+.header h6 {
+    font-size: 1.2rem;
+    font-family: "Playwrite NO", cursive;
+    color: #000;
+}
+
+.header h6 span {
+    color: #50B498;
+}
+
+.text-data {
+    padding-left: .5rem;
+}
+
+.text-area {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.in {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.out {
+    display: flex;
+    flex-direction: row;
+}
+
+.message-text {
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.message-input {
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.message-input button {
+    border: none;
+    color: #b5e7d9;
+    font-size: 1.4rem;
+
+}
+
+.message-input button .send-icon {
+    color: #50B498;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.input-type{
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.nochat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.nochat p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2rem;
+}
+
+.picture {
+    width: 6%;
+}
+
+.chat-me{
+    background-color: #b5e7d9;
+    color: #50B498;
+    text-align: left;
+}
+
+.chat-start{
+    background-color: #50B498;
+    color:#b5e7d9;
+    text-align: right;
+}
