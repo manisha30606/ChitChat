@@ -3,25 +3,34 @@ import "./messagestyle.css";
 import { IoPersonOutline } from "react-icons/io5";
 import { useAuthContext } from "../../context/AuthContext.jsx";
 import useConversation from '../../zustand/useConversation';
+import { extractTime } from "../../utils/extractTime";
 
 const Text = ({ text }) => {
-const [authUser] = useAuthContext();
-console.log('authUser:', authUser);
+  const { authUser } = useAuthContext();
   const { selectedConversation } = useConversation();
 
-  console.log('selectedConversation:', selectedConversation);
+  if (!authUser || !text) {
+    // If authUser or text is not defined, return null or a fallback UI
+    return null;
+  }
 
-  const fromMe = text.senderId === authUser?._id;
+  const fromMe = text.senderId === authUser._id;
+  const formattedTime = extractTime(text.createdAt);
   const chatClassName = fromMe ? "chat-me" : "chat-start";
-  const profilePic = fromMe ? authUser?.profilePic : selectedConversation?.profilePic;
+  const profilePic = fromMe ? authUser.profilePic : selectedConversation?.profilePic;
+
+  const shakeClass = text.shouldShake ? "shake" : "";
 
   return (
-    <div className={`text-area ${chatClassName}`}>
-      <div className="picture">
-        {profilePic ? <img src={profilePic} alt="profile" /> : <IoPersonOutline />}
-      </div>
-      <div className="text-data">
-        <h5>{text.message}</h5>
+    <div className={`chat-message ${chatClassName}`}>
+      <div className='text-area message-content'>
+        <div className="picture">
+          {profilePic ? <img src={profilePic} alt="profile" /> : <IoPersonOutline />}
+        </div>
+        <div className="text-data">
+          <h5 className={`${shakeClass}`}>{text.message}</h5>
+          <p>{formattedTime}</p>
+        </div>
       </div>
     </div>
   );

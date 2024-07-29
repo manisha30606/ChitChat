@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import "./messagestyle.css"
 import { IoSend } from "react-icons/io5";
 import useSendMessage from '../../hooks/useSendMessage';
+import { FiLoader } from "react-icons/fi";
 const MessageInput = () => {
   const [message,setMessage] = useState("");
   const {loading,sendMessage} = useSendMessage();
+
+  
   const handleSubmit = async (e) =>{
     e.preventDefault();
     if(!message) return;
@@ -19,7 +22,7 @@ const MessageInput = () => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}/>
         <button type='sumbit'>
-         {loading ? <span>Loading......</span> : <IoSend className='send-icon'></IoSend>}
+         {loading ? <FiLoader/> : <IoSend className='send-icon'></IoSend>}
         </button>
       </div>
     </>

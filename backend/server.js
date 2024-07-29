@@ -6,8 +6,9 @@ import messageRoutes from './routes/message.routes.js';
 import userRoutes from './routes/user.routes.js';
 import connectMongodb from './db/connectMongodb.js';
 import cors from 'cors';
+import {app,server} from "./socket/socket.js";
 
-const app = express();
+
 const corsOptions = {
     origin: 'http://localhost:3000', 
     credentials: true,
@@ -30,9 +31,9 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
-app.use('/api/user', userRoutes);
+app.use('/api/users', userRoutes);
 
-app.listen(PORT, async () => {
+server.listen(PORT, async () => {
     await connectMongodb();
     console.log(`Server running on port ${PORT}`);
 });

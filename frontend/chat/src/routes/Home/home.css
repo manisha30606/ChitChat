@@ -1,17 +1,68 @@
+
 .home {
-    margin: 3rem auto;
     width: 80%;
-    display: flex;
-    flex-direction: row;
     border: 2px solid #50B498;
     border-radius: .5rem;
-}
+    display: flex;
+    position: relative;
+    height: 550px; /* Ensure full height layout */
+    overflow: hidden; /* Prevent overflow scrolling */
+    position: relative;
+  }
+  
+  .sidebar-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 400px; /* Set a fixed width for the sidebar */
+    transition: transform 0.3s ease;
+    background-color: #50B498; 
+    z-index: 10; /* Ensure the sidebar is above other elements */
+  }
+  
+  .sidebar-container.closed {
+    transform: translateX(-100%); /* Slide the sidebar out of view */
+  }
+  
+  .toggle-icon {
+    position: absolute;
+    left: calc(400px + 10px); /* Place the icon immediately after the sidebar */
+    top: 50%; /* Center the icon vertically */
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color:#50B498; /* Adjust background color as needed */
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: #f0f0f0;
+    z-index: 20; /* Ensure the icon is above other elements */
+    transition: transform 0.3s ease; /* Smooth transition for position changes */
+  }
+  
+  .sidebar-container.closed ~ .toggle-icon {
+    transform: translate(-100%, -50%); /* Adjust position when sidebar is closed */
+  }
+  
+  .message-container {
+    flex: 1;
+    margin-left: 250px; /* Ensure the message container is not under the sidebar */
+    transition: margin-left 0.3s ease;
+  }
+  
+  .sidebar-container.closed ~ .message-container {
+    margin-left: 0; /* Adjust position when sidebar is closed */
+  }
 
-.left {
-    width: 30%;
- 
-}
-
-.right {
-    width: 70%;
-}
+  @media screen and (max-width:570px) {
+    .toggle-icon {
+        left: calc(220px + 5px); 
+    }
+    .sidebar-container {
+        width: 220px;
+    }
+    .home{
+        width: 98%;
+    }
+  }

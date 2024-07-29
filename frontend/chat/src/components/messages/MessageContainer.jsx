@@ -4,11 +4,15 @@ import Messages from './Messages'
 import MessageInput from './MessageInput'
 import useConversation from '../../zustand/useConversation'
 import { useEffect } from 'react'
+import { useAuthContext } from '../../context/AuthContext'
+import { IoLogoWechat } from "react-icons/io5";
 const NoChatSelected = () => {
+  const {authUser} = useAuthContext();
   return (
     <div className="nochat">
       <h1>Start Chat</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, rerum.</p>
+      <p> Hi <span>{authUser.userName}</span> ✨ Let’s Chit Chat! Your Thoughts Are Just a Message Away! ✨</p>
+      <IoLogoWechat className='nochat-icon'/>
     </div>
   )
 }

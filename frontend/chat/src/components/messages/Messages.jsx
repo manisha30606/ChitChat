@@ -1,23 +1,37 @@
-import React from 'react'
-import Text from './Text'
-import "./messagestyle.css"
-import useGetMessages from '../../hooks/useGetMessages'
-import { text } from 'express'
+import React, { useEffect ,useRef} from 'react';
+import "./messagestyle.css";
+import useGetMessages from '../../hooks/useGetMessages';
+import Text from './Text';
+import useListenMessages from '../../hooks/useListenMessages';
+
 const Messages = () => {
-    const {messages,loading} = useGetMessages();
-    console.log("messages" , messages)
+    const { messages, loading } = useGetMessages();
+    useListenMessages();
+    const lastMessageRef = useRef();
+
+    useEffect(() => {
+		setTimeout(() => {
+			lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+		}, 100);
+	}, [messages]);
+
     return (
         <>
             <div className="message-text">
                 {!loading && messages.length > 0 && messages.map((text) => (
-                    <Text key={text._id} message={text}/>
+                    <div key={text._id} ref = {lastMessageRef} >
+                        <Text text={text} />
+
+                    </div>
+                    
                 ))}
                 {loading && messages.length === 0 && (
-                    <p>Send a message to start the conversation.</p>
+                    <p className='no'>Send a message to start the conversation.</p>
+           
                 )}
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Messages
+export default Messages;

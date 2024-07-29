@@ -9,7 +9,7 @@ const logoutButton = () => {
        {!loading ? (
          <MdLogout className='logout-btn' onClick= {logout} />
        ) : (
-        <span>LOADING........</span>
+        <span className='loader'></span>
        )}
     </div>
   )

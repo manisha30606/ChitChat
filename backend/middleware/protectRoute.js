@@ -19,7 +19,7 @@ const protectRoute = async (req,res,next) =>{
     }
 
     req.user = user;
-    console.log("User ID set in middleware:", user._id);
+    // console.log("User ID set in middleware:", user._id);
     next();
 }
   catch(error){

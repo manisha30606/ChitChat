@@ -13,9 +13,10 @@
 }
 
 .header h6 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-family: "Playwrite NO", cursive;
-    color: #000;
+    color: #b5e7d9;
+    text-transform: capitalize;
 }
 
 .header h6 span {
@@ -31,21 +32,59 @@
     flex-direction: row;
 
 }
-
-.in {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.out {
-    display: flex;
-    flex-direction: row;
-}
-
 .message-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0.5rem 0;
+    
     overflow-y: scroll;
     height: 400px;
+    background: linear-gradient(rgba(86, 162, 141, 0.5), rgba(69, 183, 147, 0.5)), url("../../assets/bg.jpg") no-repeat center center / cover;
 }
+.chat-message {
+    display: flex;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .chat-me {
+    justify-content: flex-end;
+  }
+  
+  .chat-start {
+    justify-content: flex-start;
+  }
+  
+  .message-content {
+    display: flex;
+   width: 30%;
+    padding: 0.2rem;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .chat-start .message-content {
+    background-color: #d8fdf3;
+    color: #50B498;
+    border-radius: 15px 15px 15px 0;
+  }
+  
+  .chat-me .message-content {
+    background-color: #50B498;
+    color: #d8fdf3;
+    border-radius: 15px 15px 0 15px;
+  }
+  
+  .picture {
+    margin-right: 10px;
+  }
+  
+  .text-data {
+    display: flex;
+    flex-direction: column;
+  }
+  
 
 .message-input {
     padding: .5rem;
@@ -55,7 +94,8 @@
 
 .message-input button {
     border: none;
-    color: #b5e7d9;
+    color: #50B498;
+    background-color: #DEF9C4;
     font-size: 1.4rem;
 
 }
@@ -77,25 +117,100 @@
     align-items: center;
     flex-direction: column;
 }
+.nochat h1 {
+    padding-top: 2rem;
+}
 .nochat p{
     font-family: "Montserrat", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 400;
     margin-top: 2rem;
+
 }
 
-.picture {
-    width: 6%;
-}
-
-.chat-me{
-    background-color: #b5e7d9;
+.nochat p span{
     color: #50B498;
-    text-align: left;
+    text-transform: capitalize;
+    font-weight: 700;
+  
+}
+.text-data h5{
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: capitalize;
 }
 
-.chat-start{
-    background-color: #50B498;
-    color:#b5e7d9;
-    text-align: right;
+.text-data p{
+    font-size: .8rem;
+}
+
+.shake {
+	animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.2s both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
+}
+
+.nochat-icon {
+    font-size: 8rem;
+    color: #50B498;
+    margin-top: 2rem;
+    animation: upDown 2s infinite;
+  }
+  
+  @keyframes upDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+@keyframes shake {
+	10%,
+	90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+
+	20%,
+	80% {
+		transform: translate3d(2px, 0, 0);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: translate3d(-4px, 0, 0);
+	}
+
+	40%,
+	60% {
+		transform: translate3d(4px, 0, 0);
+	}
+}
+
+@media screen and (max-width:570px) {
+    .nochat h1{
+        font-size: 1.5rem;
+    }
+    .nochat p{
+        font-size: 1.2rem;
+    }
+    .text-data h5{
+        font-size: 1.2rem;
+    }
+    .text-data p {
+        font-size: .7rem;
+    }
+    .header{
+         padding: 1rem .3rem;;
+    }
+}
+@media screen and (max-width:670px){
+    .picture{
+        display: none;
+    }
 }
