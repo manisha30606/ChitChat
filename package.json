@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-		"server": "nodemon backend/server.js",
-		"start": "node backend/server.js",
-		"build": "npm install && npm install --prefix chat && npm run build --prefix chat"
-	},
+  "server": "nodemon backend/server.js",
+  "start": "node backend/server.js",
+  "build": "npm install && npm install --prefix frontend/chat && npm run build --prefix frontend/chat"
+},
+
   "type": "module",
   "keywords": [],
   "author": "",
