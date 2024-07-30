@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon backend/server.js"
-  },
+		"server": "nodemon backend/server.js",
+		"start": "node backend/server.js",
+		"build": "npm install && npm install --prefix chat && npm run build --prefix chat"
+	},
   "type": "module",
   "keywords": [],
   "author": "",
@@ -19,12 +20,13 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "module": "^1.2.5",
-    "mongodb": "^6.7.0",
-    "mongoose": "^8.4.3",
+    "mongodb": "^6.0.7",
+    "mongoose": "^6.4.3",
     "safe-buffer": "^5.2.1",
     "socket.io": "^4.7.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.3"
+    "nodemon": "^3.1.3",
+    "concurrently": "^8.0.0"
   }
 }
